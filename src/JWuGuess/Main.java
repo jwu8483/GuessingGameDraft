@@ -29,4 +29,11 @@ public class Main {
             }
         }while (Guess != secretNumber);
     }
+    public static void second(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("I Can Guess Your Number");
+        String result = keyboard.nextLine();
+
+    }
 }
