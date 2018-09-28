@@ -3,13 +3,11 @@ package JwuGuess;
 import java.util.Scanner;
 
 public class Main {
-    /*
     public static void main(String[] args) {
 
 
         int secretNumber = (int) (100 * Math.random());
         int Guess = 0;
-
 
         Scanner keyboard = new Scanner(System.in);
         int num = -1;
@@ -29,29 +27,38 @@ public class Main {
                 Guess = Guess + 1;
             }
         } while (num != secretNumber);
+        sub();
     }
-}*/
-           public static void main(String[] args)
+    public static void sub()
+    {
+        int Guess = 50;
+        int max = 100;
+        int min = 1;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("I Can Guess Your Number That Is Between 0 and 100");
+        System.out.println("Is it"  + " " + Guess + ", reply with (greater) (less) or (correct)");
+        String result = keyboard.nextLine();
+        do{
+            if (result.equals("correct"))
             {
-                int Guess = 50;
-                String one = "correct";
-                Scanner keyboard = new Scanner(System.in);
-                System.out.println("I Can Guess Your Number That Is Between 0 and 100");
-                System.out.println("Is it" + " " + Guess);
-                String result = keyboard.nextLine();
-                    if (result == one)
-                    {
-                        System.out.println("That Was Too Easy Nerd");
-                    }
-                    else if (result == "greater")
-                    {
-                        Guess = Guess + (Guess/2);
-                        System.out.println("Is it"  + " " + Guess);
-                    }
-                    else
-                    {
-                        Guess = Guess - (Guess/2);
-                        System.out.println("Is it" + " "  + Guess);
-                    }
+                System.out.println("That Was Too Easy Nerd");
+                result = keyboard.nextLine();
             }
-        }
+            else if (result.equals("greater"))
+            {
+                min = Guess;
+                Guess = (max + min)/2;
+                System.out.println("Is it"  + " " + Guess + ", reply with (greater) (less) or (correct)");
+                result = keyboard.nextLine();
+            }
+            else if (result.equals("less"))
+            {
+                max = Guess;
+                Guess = (max + min)/2;
+                System.out.println("Is it"  + " " + Guess + ", reply with (greater) (less) or (correct)");
+                result = keyboard.nextLine();
+            }
+        }while (!result.equals("correct"));
+    }
+
+}
